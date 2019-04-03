@@ -7,7 +7,7 @@ const cors = require("cors");
 
 const registerRouter = require("../register/registerRouter.js");
 const loginRouter = require("../login/loginRouter.js");
-//const userRouter = require('')
+const userRouter = require("../users/usersRouter.js");
 //const sessionConfig= require('')
 
 const db = require("../data/dbConfig.js");
@@ -20,7 +20,7 @@ server.use(express.json());
 server.use(cors());
 server.use("/api/register", registerRouter);
 server.use("/api/login", loginRouter);
-//server.use('/api/users', userRouter)
+server.use("/api/users", userRouter);
 
 server.get("/", async (req, res) => {
   try {
