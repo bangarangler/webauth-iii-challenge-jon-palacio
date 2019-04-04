@@ -4,6 +4,7 @@ import { Route, Link, Switch } from "react-router-dom";
 import axios from "axios";
 import SignUp from "./components/SignUp/SignUp.js";
 import Login from "./components/Login/Login.js";
+import Users from "./components/Users/Users.js";
 
 class App extends Component {
   constructor(props) {
@@ -17,7 +18,7 @@ class App extends Component {
     this.setState(prevState => ({
       users: [...prevState.users, newUser]
     }));
-    this.postUser(newUser);
+    //this.postUser(newUser);
     console.log(newUser);
     //console.log(this.state.users);
   };
@@ -58,6 +59,13 @@ class App extends Component {
             path="/login"
             render={props => {
               return <Login {...props} addUser={this.addUser} />;
+            }}
+          />
+          <Route
+            exact
+            path="/users"
+            render={props => {
+              return <Users {...props} addUser={this.addUser} />;
             }}
           />
 

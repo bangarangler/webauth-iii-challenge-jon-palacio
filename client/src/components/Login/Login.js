@@ -7,7 +7,7 @@ class Login extends React.Component {
     this.state = {
       username: "",
       password: "",
-      message: "",
+      message: ""
     };
   }
 
@@ -22,13 +22,13 @@ class Login extends React.Component {
       .post("http://localhost:4000/api/login", this.state)
       .then(res => {
         localStorage.setItem("tokenKey", res.data.token);
-        this.props.addUser(this.state)
+        this.props.addUser(this.state);
         this.setState({
           message: "You have Logged in",
           username: "",
           password: ""
         });
-        this.props.history.push("/");
+        this.props.history.push("/users");
       })
       .catch(err => {
         console.log(err);
