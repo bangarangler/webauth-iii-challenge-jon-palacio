@@ -16,7 +16,7 @@ function generateToken(user) {
     department: ["student", "staff", "instructor", "TA", "PM", "marketing"]
   };
   const options = {
-    expiresIn: "1m"
+    expiresIn: "10m"
   };
   return jwt.sign(payload, secret, options);
 }

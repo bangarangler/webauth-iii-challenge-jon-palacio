@@ -10,7 +10,7 @@ const Users = require("./users-model.js");
 const db = knex(knexConfig.development);
 const router = express.Router();
 
-router.get("/", async (req, res) => {
+router.get("/", restricted, async (req, res) => {
   try {
     const newUser = await Users.find();
     res.status(200).json(newUser);
